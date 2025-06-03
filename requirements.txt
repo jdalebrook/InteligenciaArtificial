@@ -1,0 +1,6 @@
+feedparser
+openai
+python-dotenv
+gspread
+oauth2client
+schedule

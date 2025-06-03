@@ -1,0 +1,8 @@
+{
+  "BBC Tecnología": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+  "NYTimes Tecnología": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+  "El Mundo Portada": "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml",
+  "Xataka": "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml",
+  "MIT Technology Review AI": "https://www.technologyreview.com/feed/",
+  "El País Tecnología": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/tecnologia/portada"
+}
