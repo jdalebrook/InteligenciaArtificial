@@ -6,3 +6,5 @@ modules/__pycache__/scraper.cpython-313.pyc
 modules/subir_a_sheets.py
 modules/subir_a_sheets.py
 modules/subir_a_sheets.py
+.env
+.env
