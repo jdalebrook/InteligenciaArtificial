@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
+MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 def generar_resumenes(noticias):
     resultados = []
@@ -25,7 +26,7 @@ Publicado: {noticia['publicado']}
 URL: {noticia['url']}
 """
         respuesta = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model=MODEL,
             messages=[
                 {"role": "system", "content": "Eres un redactor experto en publicaciones para redes sociales sobre tecnología e inteligencia artificial."},
                 {"role": "user", "content": prompt}
@@ -47,11 +48,11 @@ URL: {noticia['url']}
         })
 
     total_tokens = total_input_tokens + total_output_tokens
-    cost_usd = (total_input_tokens * 0.0005 + total_output_tokens * 0.0015) / 1000
+    cost_usd = (total_input_tokens * 0.00015 + total_output_tokens * 0.0006) / 1000  # tarifas gpt-4o-mini
     cost_eur = cost_usd * 0.93  # Aproximación actual
 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-    log_dir = r"C:\COOLSCRAPER\InteligenciaArtificial\log_history"
+    log_dir = "log_history"
     os.makedirs(log_dir, exist_ok=True)
     path = os.path.join(log_dir, f"posts_generados_{timestamp}.json")
     with open(path, "w", encoding="utf-8") as f:

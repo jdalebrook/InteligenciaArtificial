@@ -1,10 +1,16 @@
+# Secrets
+.env
+.env.*
+!.env.example
 google_service_account.json
-modules/__pycache__/__init__.cpython-313.pyc
-modules/__pycache__/exportador.cpython-313.pyc
-modules/__pycache__/generador.cpython-313.pyc
-modules/__pycache__/scraper.cpython-313.pyc
-modules/subir_a_sheets.py
-modules/subir_a_sheets.py
-modules/subir_a_sheets.py
-.env
-.env
+doc/*.json
+
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Generated output
+log_history/*
+!log_history/.gitkeep

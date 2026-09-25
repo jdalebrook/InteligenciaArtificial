@@ -1,4 +1,5 @@
 
+import re
 import feedparser
 from datetime import datetime
 import os
@@ -12,9 +13,11 @@ with open("feeds_rss.json", "r", encoding="utf-8") as f:
 with open("keywords_ia.json", "r", encoding="utf-8") as f:
     keywords = json.load(f)
 
+_patrones = [re.compile(r"\b" + re.escape(k.lower()) + r"\b") for k in keywords]
+
 def contiene_palabra_clave(texto):
     texto = texto.lower()
-    return any(palabra in texto for palabra in keywords)
+    return any(p.search(texto) for p in _patrones)
 
 def extraer_noticias():
     noticias_ai = []
@@ -36,7 +39,7 @@ def extraer_noticias():
 
     if noticias_ai:
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
-        log_dir = r"C:\COOLSCRAPER\InteligenciaArtificial\log_history"
+        log_dir = "log_history"
         os.makedirs(log_dir, exist_ok=True)
         path = os.path.join(log_dir, f"noticias_ia_{timestamp}.json")
         with open(path, "w", encoding="utf-8") as f:

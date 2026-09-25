@@ -1,6 +1,5 @@
 feedparser
-openai
+openai>=1.0
 python-dotenv
-gspread
-oauth2client
+gspread>=6.0
 schedule
